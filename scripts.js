@@ -58,17 +58,15 @@ const DOM = {
     
     
     innerHTMLTransaction (transaction) {
-        const CSSclass = transaction.amout > 0 ? "income" : "expense"
+        const CSSclass = transaction.amount > 0 ? "income" : "expense"
 
         const amount = Usefull.formatCurrency(transaction.amount)
         
         const html = `
-        <tr>
-            <td class="description">${transaction.description}</td>
-            <td class="${CSSclass}">${amount}</td>
-            <td class="date">${transaction.date}</td>
-            <td><img src="./assets/minus.svg" alt="Remover Transação"></td>
-        </tr>
+        <td class="description">${transaction.description}</td>
+        <td class="${CSSclass}">${amount}</td>
+        <td class="date">${transaction.date}</td>
+        <td><img src="./assets/minus.svg" alt="Remover Transação"></td>
         `
         return html
     }
@@ -82,10 +80,12 @@ const Usefull = {
 
         value = Number(value) / 100
 
-        value = value.toLocateString("pt-BR", {
+        value = value.toLocaleString("pt-BR", {
             style: "currency",
             currency: "BRL"
         })
+
+        return signal + value
     }
 }
 
