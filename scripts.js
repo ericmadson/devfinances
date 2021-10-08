@@ -145,6 +145,6 @@ App.init()
 
 Transaction.add({
     description: 'Alo',
-    amount: "200",
+    amount: 200,
     date: '23/01/2021'
 })
