@@ -15,19 +15,16 @@ const Modal = {
 
 const transactions = [
     {
-        id: 1,
         description: 'Luz',
         amount: -50000,
         date: '23/01/2021'
     },
     {
-        id: 2,
         description: 'Website',
         amount: 500000,
         date: '23/01/2021'
     },
     {
-        id: 3,
         description: 'Internet',
         amount: -20000,
         date: '23/01/2021'
@@ -35,14 +32,38 @@ const transactions = [
 ]
 
 const Transaction = {
-    incomes () {
+    all: transactions,
 
+    add(transaction) {
+        Transaction.all.push(transaction)
+
+        App.reload()
+    },
+
+    incomes () {
+        let income = 0;
+
+        transactions.forEach(transaction => {
+            if(transaction.amount > 0) {
+                income += transaction.amount;
+            }
+        })
+        
+        return income
     },
     expenses () {
+        let expense = 0;
 
+        transactions.forEach(transaction => {
+            if(transaction.amount < 0) {
+                expense += transaction.amount;
+            }
+        })
+        
+        return expense
     },
     total () {
-
+        return Transaction.incomes() + Transaction.expenses()
     }
 }
 
@@ -56,7 +77,6 @@ const DOM = {
         DOM.transactionsContainer.appendChild(tr)
     },
     
-    
     innerHTMLTransaction (transaction) {
         const CSSclass = transaction.amount > 0 ? "income" : "expense"
 
@@ -69,6 +89,22 @@ const DOM = {
         <td><img src="./assets/minus.svg" alt="Remover Transação"></td>
         `
         return html
+    },
+
+    updateBalance() {
+        document
+            .getElementById("incomeCard")
+            .innerHTML = Usefull.formatCurrency(Transaction.incomes())
+        document
+            .getElementById("expenseCard")
+            .innerHTML = Usefull.formatCurrency(Transaction.expenses())
+        document
+            .getElementById("totalCard")
+            .innerHTML = Usefull.formatCurrency(Transaction.total())
+    },
+
+    clearTransactions() {
+        DOM.transactionsContainer.innerHTML = ""
     }
 }
 
@@ -89,6 +125,26 @@ const Usefull = {
     }
 }
 
-transactions.forEach(function(transaction) {
-    DOM.addTransaction(transaction)
+const App = {
+    init () {
+        Transaction.all.forEach(transaction => {
+            DOM.addTransaction(transaction)
+        }),
+        
+        DOM.updateBalance()
+    },
+
+    reload() {
+        DOM.clearTransactions()
+        App.init()
+    }
+    
+}
+
+App.init()
+
+Transaction.add({
+    description: 'Alo',
+    amount: "200",
+    date: '23/01/2021'
 })
