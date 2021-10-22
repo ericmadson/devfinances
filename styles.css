@@ -37,6 +37,25 @@ body {
     border-width: 0;
 }
 
+/* Dark Mode ==========================*/
+
+.dark-mode {
+    background-color: #1A202C;
+}
+
+.dark-mode header {
+    background-color: #276749
+}
+
+.dark-mode footer {
+    color: #A0AEC0;
+}
+
+.darkModeButton {
+    cursor: pointer;
+}
+
+
 /* Links & Buttons ==========================*/
 
 a {
@@ -103,7 +122,12 @@ h2 {
 header {
     background-color: #2D4A22;
     padding: 2rem 0 15rem;
-    text-align: center;
+}
+
+header div.container {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
 }
 
 #logo {
@@ -195,6 +219,10 @@ table tr {
 table tbody tr:hover {
     opacity: 1;
 
+}
+
+td img {
+    cursor: pointer;
 }
 
 td.description {

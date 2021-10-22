@@ -12,9 +12,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&display=swap" rel="stylesheet">
     </head>
 
-    <body>
+    <body class="">
         <header>
-            <img src="./assets/logo.svg" alt="Logo Dev.Finances">
+            <div class="container">
+                <div class="darkModeButton" onclick="Dark.darkMode()"><img src="/assets/moon.svg" alt=""></div>
+                <div class="imgLogo"><img src="/assets/logo.svg" alt="Logo Dev.Finances"></div>
+                <div></div>
+            </div>
         </header>
         <main class="container">
             <section id="balance">
@@ -73,7 +77,8 @@
                             <label for="description" class="sr-only">Descrição</label>
                             <input type="text"  
                             id="description" 
-                            name="description" placeholder="Descrição">
+                            name="description" placeholder="Descrição"
+                            autocomplete="false">
                         </div>
                         <div class="input-group">
                             <label for="ammount" class="sr-only">Valor</label>
@@ -81,7 +86,8 @@
                                 id="amount" 
                                 name="amount" 
                                 step=".01"
-                                placeholder="R$ 0,00">
+                                placeholder="R$ 0,00"
+                                autocomplete="false">
                             <small class="help">Use o sinal - (negativo) para despesas e , (vírgula) para casas decimais</small>
                         </div>
                     

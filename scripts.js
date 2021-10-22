@@ -13,6 +13,13 @@ const Modal = {
     }
 }
 
+const Dark = {
+    darkMode() {
+        let element = document.body;
+        element.classList.toggle("dark-mode");
+    }
+}
+
 const Storage = {
     get () {
         return JSON.parse(localStorage.getItem("dev.finances:transactions")) || []
