@@ -14,10 +14,30 @@ const Modal = {
 }
 
 const Dark = {
+    darkSwitch() {
+        const innerHtmlSun = '<img onclick="Dark.darkMode(); Dark.darkMoon()" src="/assets/sun.svg" alt="">'
+        return innerHtmlSun
+    },
+
+    darkSwitchBack() {
+        const innerHtmlMoon = '<img onclick="Dark.darkMode(); Dark.darkSun()" src="/assets/moon.svg" alt="">'
+        return innerHtmlMoon
+    },
+    
+    darkSun() {
+        document.getElementById('darkModeSwitch').innerHTML = Dark.darkSwitch()
+    },
+
+    darkMoon() {
+        document.getElementById('darkModeSwitch').innerHTML = Dark.darkSwitchBack()
+    },
+    
     darkMode() {
         let element = document.body;
         element.classList.toggle("dark-mode");
-    }
+    },
+
+    
 }
 
 const Storage = {

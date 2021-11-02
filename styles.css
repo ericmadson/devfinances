@@ -44,7 +44,7 @@ body {
 }
 
 .dark-mode header {
-    background-color: #276749
+    background-color: #276749;
 }
 
 .dark-mode footer {
@@ -53,6 +53,18 @@ body {
 
 .darkModeButton {
     cursor: pointer;
+}
+
+.darkModeButton img:hover {
+    opacity: 0.7;
+}
+
+.dark-mode div#darkCard {
+    background-color: #CBD5E0;
+}
+
+.dark-mode div#darkCardTotal {
+    background-color: #22543D;
 }
 
 

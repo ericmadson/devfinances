@@ -15,7 +15,7 @@
     <body class="">
         <header>
             <div class="container">
-                <div class="darkModeButton" onclick="Dark.darkMode()"><img src="/assets/moon.svg" alt=""></div>
+                <div class="darkModeButton" id="darkModeSwitch"><img onclick="Dark.darkMode(); Dark.darkSun()" src="/assets/moon.svg" alt=""></div>
                 <div class="imgLogo"><img src="/assets/logo.svg" alt="Logo Dev.Finances"></div>
                 <div></div>
             </div>
@@ -24,7 +24,7 @@
             <section id="balance">
                 <h2 class="sr-only">Balanço</h2>
                 
-                <div class="card">
+                <div class="card" id="darkCard">
                     <h3>
                         <span>Entradas</span>
                         <img src="./assets/income.svg" alt="Imagem de Entradas">
@@ -32,7 +32,7 @@
                     <p id="incomeCard">R$ 0,00</p>
                 </div>
                 
-                <div class="card">
+                <div class="card" id="darkCard">
                     <h3>
                         <span>Saídas</span>
                         <img src="./assets/expense.svg" alt="Imagem de Saídas">
@@ -40,7 +40,7 @@
                     <p id="expenseCard">R$ 0,00</p>
                 </div>
                 
-                <div class="card total">
+                <div class="card total" id="darkCardTotal">
                     <h3>
                         <span>Total</span>
                         <img src="./assets/total.svg" alt="Imagem de Total">
